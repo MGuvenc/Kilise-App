@@ -18,8 +18,7 @@ export async function createClient() {
               cookieStore.set(name, value, options);
             });
           } catch {
-            // Server Component içerisinden cookie yazılamazsa
-            // middleware tarafından güncellenecek.
+            // Server Component içerisinden cookie yazılamazsa middleware tarafından güncellenecek.
           }
         },
       },

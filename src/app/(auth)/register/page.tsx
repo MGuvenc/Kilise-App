@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase/client";
+import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
@@ -19,6 +19,8 @@ export default function RegisterPage() {
     setLoading(true);
     setMessage("");
 
+    const supabase = createClient();
+    
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
