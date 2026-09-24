@@ -34,9 +34,17 @@ export async function getUserContext() {
     redirect("/");
   }
 
+  const church = Array.isArray(membership.churches)
+    ? membership.churches[0]
+    : membership.churches;
+
+  if (!church) {
+    redirect("/");
+  }
+
   return {
     user,
     membership,
-    church: membership.churches,
+    church,
   };
 }
